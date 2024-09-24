@@ -1,4 +1,4 @@
-import cardJSON from '../db.json' assert {type:'json'}
+import cardJSON from '../db.json' with { type: 'json' }
 
 export default class CardGetter {
     constructor(){
