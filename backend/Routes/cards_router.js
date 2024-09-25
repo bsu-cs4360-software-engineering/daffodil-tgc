@@ -3,10 +3,11 @@ import DMS from '../dbManagement/databaseManagementSingleton.js';
 
 const app = express();
 const card_router = express.Router();
-const card_db = DMS.getCards();
+const cardList = DMS.getCardsList();
+const cards = DMS.getCardsJSONOld();
 
 card_router.get('/', (req,res) =>{
-    res.json(card_db)
+    res.json(cardList)
 });
 
 

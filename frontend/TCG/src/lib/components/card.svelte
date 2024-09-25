@@ -3,6 +3,8 @@
 	import { onMount } from "svelte";
 
     let {cardData}: {cardData:card} = $props()
+    let keys = Object.keys(cardData)
+    let data = cardData[keys[0]]
 </script>
 
 <style>
@@ -33,7 +35,7 @@
 
 </style>
 <div class="card">
-    <div class="name">{cardData.name}</div>
-    <div class="damage">Damage - {cardData.damage}</div>
-    <div class="effect">Effect - {cardData.effect}</div>
+    <div class="name">{data.name}</div>
+    <div class="damage">Damage - {data.damage}</div>
+    <div class="effect">Effect - {data.effect}</div>
 </div>

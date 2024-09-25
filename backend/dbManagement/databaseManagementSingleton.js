@@ -34,11 +34,25 @@ export class DatabaseManagementSingleton {
     constructor() {
         this.db = cardJSON; 
     }
-    getCards() {
+    getCardsJSON() {
         return this.db
     }
+    getCardsList() {
+      var cardList = []
+      for (var id in this.getCardsJSON()) {
+          cardList.push( { [id]: this.getCardFromID(id) } )
+      }
+      return cardList
+    }
+    getCardsJSONOld() {
+      const newDB = this.getCardsJSON();
+      return Object.entries(newDB).map(([key, entry]) => {
+          entry.id = key;
+          return entry;
+      });
+  }
     getCardFromID(id) {
-        return this.getCards()[id]
+        return this.getCardsJSON()[id]
     }
 }
 
