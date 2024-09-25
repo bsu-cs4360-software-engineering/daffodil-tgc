@@ -3,7 +3,7 @@
 </script>
 <div class="main">
     <div class="header">
-        <h1>DND - HearthStone</h1>
+        <h1>Dungeonstone</h1>
     </div>
     <div class="gameContent">
         <slot />
@@ -12,7 +12,9 @@
 <style>
     .main {
         width: 100%;
-        min-width: 100vh;
+        min-height: 100vh;
+        background-color: rgb(95, 95, 95);
+        color: white;
     }
 
     .header{
@@ -21,12 +23,16 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: #213740;
+        background-color: #1b2d34;
     }
 
     h1 {
         margin: 10px 0px;
-        color: #c9d5de;
+        color: white;
+    }
+
+    .gameContent {
+        padding: 1%;
     }
 
 </style>
