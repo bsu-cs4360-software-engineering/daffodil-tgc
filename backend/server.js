@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
 
-app.use('/cards',card_router)
+app.use('/api',card_router)
 
 app.listen(PORT, ()=>{
   console.log(`We are running on port ${PORT}`);
