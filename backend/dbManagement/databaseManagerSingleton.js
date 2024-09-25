@@ -35,7 +35,7 @@ export class DatabaseManagerSingleton {
     getCards() {
         return this.db
     }
-    getCard(id) {
+    getCardFromID(id) {
         return this.getCards()[id]
     }
 }

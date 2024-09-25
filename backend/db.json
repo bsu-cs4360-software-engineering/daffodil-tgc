@@ -1,62 +1,52 @@
-[
-    {
-      "id": 123,
-      "damage": 12,
-      "effect": "This is an effect",
-      "name": "potato"
-    },
-    {
-      "id": 456,
-      "damage": 20,
-      "effect": "Another effect",
-      "name": "carrot"
-    },
-    {
-      "id": 789,
-      "damage": 15,
-      "effect": "Yet another effect",
-      "name": "banana"
-    },
-    {
-      "id": 101,
-      "damage": 8,
-      "effect": "Small effect",
-      "name": "apple"
-    },
-    {
-      "id": 202,
-      "damage": 25,
-      "effect": "Large effect",
-      "name": "orange"
-    },
-    {
-      "id": 303,
-      "damage": 18,
-      "effect": "Medium effect",
-      "name": "grape"
-    },
-    {
-      "id": 404,
-      "damage": 10,
-      "effect": "Special effect",
-      "name": "pear"
-    },
-    {
-      "id": 505,
-      "damage": 22,
-      "effect": "Powerful effect",
-      "name": "peach"
-    },
-    {
-      "id": 606,
-      "damage": 14,
-      "effect": "Quick effect",
-      "name": "cherry"
-    },
-    {
-      "id": 707,
-      "damage": 16,
-      "effect": "Slow effect",
-      "name": "plum"
-    }
-  ]
+{
+  "123": {
+    "damage": 12,
+    "effect": "This is an effect",
+    "name": "potato"
+  },
+  "456": {
+    "damage": 20,
+    "effect": "Another effect",
+    "name": "carrot"
+  },
+  "789": {
+    "damage": 15,
+    "effect": "Yet another effect",
+    "name": "banana"
+  },
+  "101": {
+    "damage": 8,
+    "effect": "Small effect",
+    "name": "apple"
+  },
+  "202": {
+    "damage": 25,
+    "effect": "Large effect",
+    "name": "orange"
+  },
+  "303": {
+    "damage": 18,
+    "effect": "Medium effect",
+    "name": "grape"
+  },
+  "404": {
+    "damage": 10,
+    "effect": "Special effect",
+    "name": "pear"
+  },
+  "505": {
+    "damage": 22,
+    "effect": "Powerful effect",
+    "name": "peach"
+  },
+  "606": {
+    "damage": 14,
+    "effect": "Quick effect",
+    "name": "cherry"
+  },
+  "707": {
+    "damage": 16,
+    "effect": "Slow effect",
+    "name": "plum"
+  }
+}

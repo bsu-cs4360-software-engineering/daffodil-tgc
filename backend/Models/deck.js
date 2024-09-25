@@ -1,11 +1,11 @@
 import Card from './card.js'
-import DMS from './databaseManagerSingleton.js'
+import DMS from '../dbManagement/databaseManagerSingleton.js'
 
 export default class Deck {
     constructor(ids) {
         //cards stored as card objects
         this.cards = ids.reduce((acc, id) => {
-            acc[id] = new Card(DMS.getCard(id)); 
+            acc[id] = new Card(DMS.getCardFromID(id)); 
             return acc; 
           }, {});
     } 

@@ -11,7 +11,7 @@ export default class Hand extends Deck {
     }
 }
 //initialize hand with list of cardID's
-const testPlayerHand = [1, 3, 5]
+const testPlayerHand = [123, 456, 789]
 var hand = new Hand(testPlayerHand)
 
 console.log(hand)
