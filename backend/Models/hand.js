@@ -15,3 +15,11 @@ const testPlayerHand = [123, 456, 789]
 var hand = new Hand(testPlayerHand)
 
 console.log(hand)
+
+hand.addCard(101)
+
+console.log(hand)
+
+hand.removeCard(789)
+
+console.log(hand)

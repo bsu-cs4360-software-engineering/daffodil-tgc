@@ -27,4 +27,10 @@ export default class Deck {
             return null
         }
     }
+    addCard(id) {
+        this.getCards()[id] = new Card(DMS.getCardFromID(id))
+    }
+    removeCard(id) {
+        delete this.getCards()[id]
+    }
 }
