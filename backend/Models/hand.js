@@ -22,8 +22,12 @@ var hand = new Hand()
 console.log(deck)
 console.log(hand)
 
+/*
 console.log("\nDrawing random card from deck and adding it to hand\n")
 hand.drawFrom(deck)
 
 console.log(deck)
 console.log(hand)
+*/
+
+console.log(deck.getCardsList())

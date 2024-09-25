@@ -10,6 +10,13 @@ export default class Deck {
     getCards() {
         return this.cards
     }
+    getCardsList() {
+        var cardList = []
+        for (var id in this.getCards()) {
+            cardList.push( { [id]: this.getCardFromID(id) } )
+        }
+        return cardList
+    }
     getIDs() {
         return Object.keys(this.getCards())
     }
