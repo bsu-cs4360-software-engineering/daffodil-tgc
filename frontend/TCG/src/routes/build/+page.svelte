@@ -4,6 +4,11 @@
     let {data} = $props();
     const cardData = data.cardData
 
+    let exampleData = {
+        name: "Example Card",
+        damage: 100,
+        effect: "This is an example card"
+    }
 
 </script>
 <style>
@@ -15,7 +20,5 @@
     }
 </style>
 <div class="cardLayout">
-    {#each cardData as data}
-        <Card cardData={data}/>
-    {/each}
+        <Card cardData={exampleData}/>
 </div>
