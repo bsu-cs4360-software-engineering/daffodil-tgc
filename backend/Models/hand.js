@@ -7,14 +7,14 @@ export default class Hand extends Deck {
         }
         const cardID = this.getKeys()[pos]
         const card = this.getCardFromID(cardID)
-        //return { [cardID]: card}
-        return card
+        return { [cardID]: card}
+        //return card
     }
     drawFrom(deck) {
         this.addCard(deck.drawRND())
     }
 }
-//initialize hand with list of cardID's
+//initialize deck with list of cardID's
 const testPlayerDeck = [123,456,789,101,202,303,404,505,606,707]
 var deck = new Deck(testPlayerDeck)
 var hand = new Hand()

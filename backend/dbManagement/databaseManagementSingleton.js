@@ -28,9 +28,11 @@ const client = new MongoClient(uri, {
   run().catch(console.dir);
   */
 
+
+  //to replace with MongoDB database
 export class DatabaseManagementSingleton {
     constructor() {
-        this.db = cardJSON;
+        this.db = cardJSON; 
     }
     getCards() {
         return this.db
