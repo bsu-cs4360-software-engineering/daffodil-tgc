@@ -14,23 +14,11 @@ export default class Hand extends Deck {
         this.addCard(deck.drawRND())
     }
 }
+/*
 //initialize deck with list of cardID's
 const testPlayerDeck = [123,456,789,101,202,303,404,505,606,707]
 var deck = new Deck(testPlayerDeck)
 var hand = new Hand()
 
-/*
-console.log(deck)
-console.log(hand)
-
-/*
-console.log("\nDrawing random card from deck and adding it to hand\n")
-hand.drawFrom(deck)
-*/
-
 console.log(deck.getCardsList())
-console.log(deck)
-console.log(hand)
 */
-
-console.log(deck.getCardsList())
