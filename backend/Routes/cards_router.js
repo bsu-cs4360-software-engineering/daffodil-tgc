@@ -1,9 +1,9 @@
 import express from 'express'
-import CardGetter from '../dbManagement/getting_deck_of_cards.js';
+import DMS from '../dbManagement/databaseManagementSingleton.js';
 
 const app = express();
 const card_router = express.Router();
-const card_db = new CardGetter().get_cards();
+const card_db = DMS.getCards();
 
 card_router.get('/', (req,res) =>{
     res.json(card_db)

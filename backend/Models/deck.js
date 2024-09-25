@@ -1,5 +1,5 @@
 import Card from './card.js'
-import DMS from '../dbManagement/databaseManagerSingleton.js'
+import DMS from '../dbManagement/databaseManagementSingleton.js'
 
 export default class Deck {
     constructor(ids) {

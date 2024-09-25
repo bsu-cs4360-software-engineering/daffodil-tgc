@@ -28,7 +28,7 @@ const client = new MongoClient(uri, {
   run().catch(console.dir);
   */
 
-export class DatabaseManagerSingleton {
+export class DatabaseManagementSingleton {
     constructor() {
         this.db = cardJSON;
     }
@@ -40,5 +40,5 @@ export class DatabaseManagerSingleton {
     }
 }
 
-const DMS = new DatabaseManagerSingleton();
+const DMS = new DatabaseManagementSingleton();
 export default DMS;
