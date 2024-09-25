@@ -12,7 +12,7 @@ export default class Deck {
     }
     getCardsList() {
         var cardList = []
-        for (const id in this.getCards()) {
+        for (var id in this.getCards()) {
             cardList.push( { [id]: this.getCardFromID(id) } )
         }
         return cardList
