@@ -3,17 +3,18 @@ import DMS from '../dbManagement/databaseManagementSingleton.js'
 
 export default class Deck {
     constructor(ids) {
-        //cards stored as card objects
-        this.cards = ids.reduce((acc, id) => {
-            acc[id] = new Card(DMS.getCardFromID(id)); 
-            return acc; 
-          }, {});
+        this.cards = {}; 
+        if (ids != undefined)
+            ids.forEach(id => this.addCard(id)); 
     } 
     getCards() {
         return this.cards
     }
+    getIDs() {
+        return Object.keys(this.getCards())
+    }
     size() {
-        return this.getCards().length
+        return this.getIDs().length
     }
     inDeck(id) {
         return (id in this.getCards())
@@ -32,5 +33,11 @@ export default class Deck {
     }
     removeCard(id) {
         delete this.getCards()[id]
+    }
+    drawRND() {
+        let randomIndex = Math.floor(Math.random() * this.size())
+        let randomID = this.getIDs()[randomIndex]
+        this.removeCard(randomID)
+        return randomID
     }
 }

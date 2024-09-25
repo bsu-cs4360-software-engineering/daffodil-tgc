@@ -5,21 +5,25 @@ export default class Hand extends Deck {
         if (pos < 0 || pos >= this.size()) {
             throw RangeError
         }
-        const cardID = Object.keys(this.getCards())[pos]
+        const cardID = this.getKeys()[pos]
         const card = this.getCardFromID(cardID)
-        return { [cardID]: card}
+        //return { [cardID]: card}
+        return card
+    }
+    drawFrom(deck) {
+        this.addCard(deck.drawRND())
     }
 }
 //initialize hand with list of cardID's
-const testPlayerHand = [123, 456, 789]
-var hand = new Hand(testPlayerHand)
+const testPlayerDeck = [123,456,789,101,202,303,404,505,606,707]
+var deck = new Deck(testPlayerDeck)
+var hand = new Hand()
 
+console.log(deck)
 console.log(hand)
 
-hand.addCard(101)
+console.log("\nDrawing random card from deck and adding it to hand\n")
+hand.drawFrom(deck)
 
-console.log(hand)
-
-hand.removeCard(789)
-
+console.log(deck)
 console.log(hand)
