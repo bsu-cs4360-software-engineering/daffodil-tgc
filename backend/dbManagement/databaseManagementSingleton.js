@@ -30,7 +30,7 @@ class DatabaseManagementSingleton {
 
   async loadDatabase() {
     const dbName = "Dungeonstone";
-    const collectionName = "cardData";
+    const collectionName = "oldCardData";
 
     this.db = this.client.db(dbName);
     this.collection = this.db.collection(collectionName);

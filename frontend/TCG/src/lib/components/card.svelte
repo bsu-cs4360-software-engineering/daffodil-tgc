@@ -3,7 +3,6 @@
 	import { onMount } from "svelte";
 
     let {cardData}: {cardData:card} = $props()
-    let data = cardData
 </script>
 
 <style>
@@ -12,7 +11,7 @@
         flex-direction: column;
         width: 200px;
         min-height: 300px;
-        border-radius: 1rem;
+        border-radius: 2rem;
         border: 3px solid #090F13;
         box-shadow: 2px 3px 20px 5px rgba(35, 59, 69, 0.575);
         transition: .35s;
@@ -32,9 +31,10 @@
         font-size: 2rem;
     }
 
-</style>
+</style>    
 <div class="card">
-    <div class="name">{data.name}</div>
-    <div class="damage">Damage - {data.damage}</div>
-    <div class="effect">Effect - {data.effect}</div>
+    <div class="name">{cardData.name}</div>
+    <div class="id">CardID - {cardData.id}</div>
+    <div class="damage">Damage - {cardData.damage}</div>
+    <div class="effect">Effect - {cardData.effect}</div>
 </div>
