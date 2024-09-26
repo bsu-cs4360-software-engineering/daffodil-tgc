@@ -1,60 +1,66 @@
-import cardJSON from '../db.json' with { type: 'json' }
-
-/*
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-const uri = 'mongodb+srv://henricksonethan:<db_password>@carddata.mpiki.mongodb.net/?retryWrites=true&w=majority&appName=CardData';
+let instance = null;
 
-const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
-  
-  async function run() {
-    try {
-      // Connect the client to the server	(optional starting in v4.7)
-      await client.connect();
-      // Send a ping to confirm a successful connection
-      await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-      await client.close();
-    }
+class DatabaseManagementSingleton {
+  constructor(client) {
+    this.client = client;
+    this.db = null;
+    this.collection = null;
   }
-  run().catch(console.dir);
-  */
 
+  static async getInstance() {
+    if (!instance) {
+      const uri = "mongodb+srv://dbUSER:daffodil@carddata.mpiki.mongodb.net/?retryWrites=true&w=majority&appName=CardData";
+      const client = new MongoClient(uri, {
+        serverApi: {
+          version: ServerApiVersion.v1,
+          strict: true,
+          deprecationErrors: true,
+        }
+      });
 
-  //to replace with MongoDB database
-export class DatabaseManagementSingleton {
-    constructor() {
-        this.db = cardJSON; 
+      await client.connect();
+
+      instance = new DatabaseManagementSingleton(client);
+      await instance.loadDatabase();
     }
-    getCardsJSON() {
-        return this.db
-    }
-    getCardsList() {
-      var cardList = []
-      for (var id in this.getCardsJSON()) {
-          cardList.push( { [id]: this.getCardFromID(id) } )
-      }
-      return cardList
-    }
-    getCardsJSONOld() {
-      const newDB = this.getCardsJSON();
+    return instance;
+  }
+
+  async loadDatabase() {
+    const dbName = "Dungeonstone";
+    const collectionName = "cardData";
+
+    this.db = this.client.db(dbName);
+    this.collection = this.db.collection(collectionName);
+  }
+
+  async getCardsJSON() {
+    const documents = await this.collection.find().toArray();
+    return documents.map(({ _id, ...rest }) => rest)[0];
+  }
+
+  async getCardsList() {
+    const cards = await this.getCardsJSON();
+    return cards.map((card, index) => ({ [index]: card }));
+  }
+
+  async getCardsJSONOld() {
+    const newDB = await this.getCardsJSON();
       return Object.entries(newDB).map(([key, entry]) => {
           entry.id = key;
           return entry;
       });
   }
-    getCardFromID(id) {
-        return this.getCardsJSON()[id]
-    }
+
+  async getCardFromID(id) {
+    const cards = await this.getCardsJSON();
+    return cards[id];
+  }
 }
 
-const DMS = new DatabaseManagementSingleton();
-export default DMS;
+// Export a method to get the singleton instance
+export async function getDMS() {
+  return await DatabaseManagementSingleton.getInstance();
+}
