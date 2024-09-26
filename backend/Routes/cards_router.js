@@ -1,14 +1,15 @@
-import express from 'express'
-import DMS from '../dbManagement/databaseManagementSingleton.js';
+import express from 'express';
+import { getDMS } from '../dbManagement/databaseManagementSingleton.js';
 
-const app = express();
 const card_router = express.Router();
-const cardList = DMS.getCardsList();
-const cards = DMS.getCardsJSONOld();
 
-card_router.get('/', (req,res) =>{
-    res.json(cardList)
-});
+(async () => {
+  const DMS = await getDMS();
+  
+  card_router.get('/', async (req, res) => {
+    const cards = await DMS.getCardsJSONOld();
+    res.json(cards);
+  });
+})();
 
-
-export default card_router
+export default card_router;

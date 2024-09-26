@@ -3,8 +3,7 @@
 	import { onMount } from "svelte";
 
     let {cardData}: {cardData:card} = $props()
-    let keys = Object.keys(cardData)
-    let data = cardData[keys[0]]
+    let data = cardData
 </script>
 
 <style>
