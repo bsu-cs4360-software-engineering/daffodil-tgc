@@ -1,10 +1,12 @@
 # daffodil-tgc
 
+
 # How to play the game
 - First step is to make sure that you have node js installed on your system.
 - Next, go the root directory of our project where the ```start_servers.py``` file is located.
 - Lastly, run the python file using ```python start_servers.py``` in the terminal. This will install all the dependiences for both servers, get them started, and open the correct webpage for you to view the game.
 - Enjoy!
+=======
 
 # Summary of Game (Major elements or play points)
 
@@ -42,6 +44,7 @@
   - This would make sense for PvE gameplay unless we end up implementing PvP then the client will use a custom-api to communicate its actions with the server
 - The game will make use of a mono-repo codebase
   - This is because the game will be quite simple logically and probably won't have any development done on it once we finish this project
+
 
 # Data structure and stuff
 
