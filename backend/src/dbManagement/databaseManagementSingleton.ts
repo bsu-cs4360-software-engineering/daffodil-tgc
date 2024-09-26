@@ -24,7 +24,7 @@ class DatabaseManagementSingleton {
     return doc
   }
 
-  async getAllClasses(name: string) {
+  async getAllClasses() {
     const docs = await this.classCollection.find().toArray();
     return docs
   }
