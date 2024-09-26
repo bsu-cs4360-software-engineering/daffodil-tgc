@@ -1,6 +1,12 @@
 # daffodil-tgc
 
-Here's the content converted to Markdown format:
+
+# How to play the game
+- First step is to make sure that you have node js installed on your system.
+- Next, go the root directory of our project where the ```start_servers.py``` file is located.
+- Lastly, run the python file using ```python start_servers.py``` in the terminal. This will install all the dependiences for both servers, get them started, and open the correct webpage for you to view the game.
+- Enjoy!
+=======
 
 # Summary of Game (Major elements or play points)
 
@@ -30,14 +36,15 @@ Here's the content converted to Markdown format:
   - We will be using a JSON NOSQL database because it allows us to get all the information we need with any need for joins and relations.
   - They are also easily human readable/modifiable and would be exceptionally useful for storing card-data
 - The game will be rendered using HTML/JavaScript in the frontend and all the game logic will be handled using NodeJS on the back end.
-  - I picked HTML because I want something simple and efficient to be able to display my game
-  - I chose JavaScript so I could dynamically update the web page to reflect the current game state and because it's an obvious pairing with HTML
+  - We picked HTML because we wanted something simple and efficient to be able to display my game
+  - We chose JavaScript so we could dynamically update the web page to reflect the current game state and because it's an obvious pairing with HTML
 - The game will be service-based
   - This makes more sense for a turn based game
 - The game will be a local service and run on the player's device
-  - This would make sense for PvE gameplay unless I end up implementing PvP then the client will use a custom-api to communicate its actions with the server
+  - This would make sense for PvE gameplay unless we end up implementing PvP then the client will use a custom-api to communicate its actions with the server
 - The game will make use of a mono-repo codebase
-  - This is because the game will be quite simple logically and probably won't have any development done on it once I finish this project
+  - This is because the game will be quite simple logically and probably won't have any development done on it once we finish this project
+
 
 # Data structure and stuff
 
