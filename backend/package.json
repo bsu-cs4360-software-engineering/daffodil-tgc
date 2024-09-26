@@ -1,17 +1,26 @@
 {
-  "name": "backend",
+  "name": "test-epress",
   "version": "1.0.0",
-  "description": "THis is the backend for Daffodil-TGC",
+  "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "backend": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "serve": "node dist/index.js"
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.2",
+    "express": "^4.21.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.0",
     "mongodb": "^6.9.0"
   }
 }
