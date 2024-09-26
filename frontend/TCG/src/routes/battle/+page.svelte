@@ -1,13 +1,27 @@
 <script lang="ts">
-    import Card from "$lib/components/card.svelte";
-	import ClassCard from "$lib/components/classCard.svelte";
-	import { selectedCards, selectedClass } from "$lib/stores.svelte.js";
+    import BattleCard from "$lib/components/battlecard.svelte";
+    
+    
+	import { selectedCards } from "$lib/stores.svelte.js";
+	import type { card } from "$lib/types";
+	import { onMount } from "svelte";
 
-    let {data} = $props();
-    const cardData = data.cardData
-    const classCardData = data.classCardData
 
-    let classSelected = false;
+    const cardDataNames = selectedCards.get()
+    let cardData : any[]
+
+
+    onMount(async ()=>{
+        let dataResponse = [];
+        for (let index in cardDataNames){
+            let response = await fetch(`http://localhost:3000/api/getCardByName?name=${cardDataNames[index]}`)
+            let data: card = await response.json()
+            console.log(data)
+            dataResponse.push(data)
+        }
+        cardData = dataResponse
+        console.log(cardData)
+    })
 
 </script>
 <style>
@@ -68,27 +82,10 @@
     }
 </style>
 <div class="classSelector">
-    <div class="title">Choose your class</div>
+    <div class="title">Your deck! Click to play a card</div>
     <div class="classCardLayout">
-        {#each classCardData as data}
-            <ClassCard cardData={data} />
-        {/each}
-    </div>
-</div>
-{#if selectedClass.get()}
-<div class="classSelector">
-    <div class="title2">Select 3 cards to add to your deck</div>
-    <div class="cardLayout">
         {#each cardData as data}
-            <Card cardData={data}/>
+            <BattleCard cardData={data}/>
         {/each}
     </div>
 </div>
-
-{/if}
-{#if selectedCards.get().length == 3}
-    <div class="finishLayout">
-        <div class="title2">Good job building your deck!</div>
-        <a href="/battle">Play!</a>
-    </div>
-{/if}

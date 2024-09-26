@@ -13,7 +13,7 @@ card_router.get("/getAllClasses", async (req, res) => {
   res.json(data);
 });
 
-card_router.get("/getAllCards", async (req, res) => {
+card_router.get("/getCardByName", async (req, res) => {
   const name = req.query.name
   //@ts-ignore
   const data = await DMS.getCardByName(name);

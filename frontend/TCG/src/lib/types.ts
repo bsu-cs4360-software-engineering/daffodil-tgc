@@ -15,7 +15,4 @@ export interface classCard{
    effect: string;
    name: string;
 }
-export interface newCard {
-   [id: string]: cardData;
-}
 
