@@ -1,8 +1,10 @@
 <script lang="ts">
-	import type { card } from "$lib/types";
+    import type { card } from "$lib/types";
 	import { onMount } from "svelte";
 
     let {cardData}: {cardData:card} = $props()
+
+    
 </script>
 
 <style>
@@ -18,6 +20,8 @@
         padding: 5px;
         background-color: #213740;
         color: white;
+
+        cursor: pointer;
         
     }
 
