@@ -1,22 +1,11 @@
 <script lang="ts">
-	import { selectedCards } from "$lib/stores.svelte";
     import type { card } from "$lib/types";
 
     let {cardData}: {cardData:card} = $props()
 
-    function setCard(){
-        selectedCards.set(cardData.name)
-    }   
-
-    let cardIsGold = $state(false)
-
-    $effect(()=>{
-        if(selectedCards.get().includes(cardData.name)){
-            cardIsGold = true
-        } else {
-            cardIsGold = false
-        }
-    })
+    function alertCard(){
+        alert(`You played the ${cardData.name} card!`)
+    }
 
 </script>
 
@@ -48,25 +37,13 @@
         font-size: 2rem;
     }
 
-    .gold {
-        border-color: rgb(226, 197, 34) !important;
-    }
-
 </style>    
 
 
-{#if !cardIsGold}
-<div class="card" on:click={setCard}>
+
+<div class="card" on:click={alertCard}>
     <div class="name">{cardData.name}</div>
     <div class="id">CardID - {cardData.id}</div>
     <div class="damage">Damage - {cardData.damage}</div>
     <div class="effect">Effect - {cardData.effect}</div>
 </div>
-{:else}
-<div class="card gold" on:click={setCard}>
-    <div class="name">{cardData.name}</div>
-    <div class="id">CardID - {cardData.id}</div>
-    <div class="damage">Damage - {cardData.damage}</div>
-    <div class="effect">Effect - {cardData.effect}</div>
-</div>
-{/if}

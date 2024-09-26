@@ -96,6 +96,7 @@
         border-radius: 1rem;
         transition: .25s;
         cursor: pointer;
+        text-decoration: none;
     }
 
     .ready a:hover {
