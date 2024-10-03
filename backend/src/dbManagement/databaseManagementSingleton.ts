@@ -28,7 +28,6 @@ class DatabaseManagementSingleton {
     const docs = await this.classCollection.find().toArray();
     return docs
   }
-  
 
   async close(){
     await this.client.close()
@@ -37,3 +36,5 @@ class DatabaseManagementSingleton {
 
 const DMS = new DatabaseManagementSingleton()
 export default DMS 
+
+

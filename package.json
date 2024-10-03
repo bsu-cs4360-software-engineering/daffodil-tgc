@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "start": "concurrently \"npm run backend --prefix backend\" \"npm run frontend --prefix frontend/TCG\""
+    },
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
+}
