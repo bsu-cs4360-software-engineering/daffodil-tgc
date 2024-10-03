@@ -9,7 +9,8 @@
 =======
 
 # How to test the game code
-- FrontEnd: to to the frontend/tcg folder and then run "npm run test"
+- FrontEnd: to test goto the frontend/tcg folder and then run "npm run test"
+- Backend: to test goto the backend folder and then run "npm run test"
 
 # Summary of Game (Major elements or play points)
 

@@ -21,3 +21,9 @@ export interface superClassCard{
    name: string;
 }
 
+export interface superClassCard{
+   _id: number;
+   className:string,
+   description: string
+}
+
