@@ -1,5 +1,5 @@
 export interface card {
-    id: number;
+    _id: number;
     damage: number;
     effect: string;
     name: string;
@@ -14,5 +14,11 @@ export interface classCard{
    damage: number;
    effect: string;
    name: string;
+}
+
+export interface superClassCard{
+   _id: number;
+   className:string,
+   description: string
 }
 
