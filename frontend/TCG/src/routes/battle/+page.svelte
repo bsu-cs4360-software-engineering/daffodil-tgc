@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { loadCardsByName } from "$lib";
     import BattleCard from "$lib/components/battlecard.svelte";
     
     
@@ -12,15 +13,8 @@
 
 
     onMount(async ()=>{
-        let dataResponse = [];
-        for (let index in cardDataNames){
-            let response = await fetch(`http://localhost:3000/api/getCardByName?name=${cardDataNames[index]}`)
-            let data: card = await response.json()
-            console.log(data)
-            dataResponse.push(data)
-        }
+        let dataResponse = await loadCardsByName(cardDataNames)
         cardData = dataResponse
-        console.log(cardData)
     })
 
 </script>
