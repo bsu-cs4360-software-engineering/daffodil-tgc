@@ -4,6 +4,7 @@
 	import { selectedCards, selectedClass } from "$lib/stores.svelte.js";
 
     let {data} = $props();
+    //@ts-ignore
     const cardData = data.cardData
     const classCardData = data.classCardData
 

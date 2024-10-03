@@ -8,6 +8,9 @@
 - Enjoy!
 =======
 
+# How to test the game code
+- FrontEnd: to to the frontend/tcg folder and then run "npm run test"
+
 # Summary of Game (Major elements or play points)
 
 - Players will be able to build a deck from various cards to design their own strategy
