@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { loadCardsByName } from "$lib";
-    import BattleCard from "$lib/components/battlecard.svelte";
-    
+	import BattleCard from "$lib/components/battle-card.svelte";
     
 	import { selectedCards } from "$lib/stores.svelte.js";
 	import type { card } from "$lib/types";
