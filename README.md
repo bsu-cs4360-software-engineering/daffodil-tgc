@@ -2,11 +2,9 @@
 
 
 # How to play the game
-- First step is to make sure that you have node js installed on your system.
-- Next, go the root directory of our project where the ```start_servers.py``` file is located.
-- Lastly, run the python file using ```python start_servers.py``` in the terminal. This will install all the dependiences for both servers, get them started, and open the correct webpage for you to view the game.
+- All you have to do is go to the website, https://daffodil-eight.vercel.app/ 
 - Enjoy!
-=======
+
 
 # How to test the game code
 - FrontEnd: to test goto the frontend/tcg folder and then run "npm run test"
