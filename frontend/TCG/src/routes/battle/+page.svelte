@@ -1,20 +1,50 @@
 <script lang="ts">
-	import { loadCardsByName } from "$lib";
-	import BattleCard from "$lib/components/battle-card.svelte";
-    
+    import BattleCard from "$lib/components/battle-card.svelte";
+    import UnknownCard from "$lib/components/unknown-card.svelte";
 	import { selectedCards } from "$lib/stores.svelte.js";
 	import type { card } from "$lib/types";
-	import { onMount } from "svelte";
 
+    let {data} = $props();
+    //@ts-ignore
+    const allCardData = data.cardData
 
-    const cardDataNames = selectedCards.get()
-    let cardData : any[]
+    let cardData: card[] = $state()
 
-
-    onMount(async ()=>{
-        let dataResponse = await loadCardsByName(cardDataNames)
-        cardData = dataResponse
+    $effect(()=>{
+        selectedCards.getData().then(data => {
+            cardData = data
+            console.log(data);
+        })
     })
+
+    function removebyName(card:string){
+        if(selectedCards.getLength() > 2){
+            alert(`You played the ${card} card!`)
+            const ran = Math.round(Math.random() * allCardData.length)
+            alert(`The computer played the ${allCardData[ran].name}`)
+            selectedCards.set(card)
+        }
+        
+         else {
+            alert("You need to draw a card first")
+         }
+    }
+
+    function addCard(){
+        if(selectedCards.getLength() <= 2){
+            while(1){
+                const ran = Math.ceil(Math.random() * allCardData.length - 1)
+                if(!selectedCards.get().includes(allCardData[ran].name)){
+                    selectedCards.set(allCardData[ran].name)
+                    break
+                }
+            }
+        } else {
+            alert("You already have 3 cards in your hand. Play a card first.")
+        }
+
+    }
+        
 
 </script>
 <style>
@@ -31,6 +61,7 @@
         gap: 25px;
         justify-items: center;
         align-items: center;
+        width: 800px;
     }
 
     .classSelector {
@@ -46,39 +77,76 @@
         margin: 1rem 0rem;
     }
 
-    .title2 {
-        align-self: center;
-        font-size: 2.75rem;
-        margin: 0rem 0rem 2rem;
+    .playfield{
+        width: 100%;
+        padding: 1rem;
     }
 
-    .finishLayout {
+
+    .battlefield{
+        display: flex;
+        flex-direction: row;
+        background-color: green;
+        height: 50vh;
+    }
+    .layout {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .left {
         display: flex;
         flex-direction: column;
-        justify-items: center;
-        align-items: center;
-        margin-bottom: 130px;
+        flex-wrap: nowrap;
+        height: 600px;
+        align-content: center;
+        justify-content: center;
+
     }
 
-    .finishLayout a{
-        padding: 1rem 2rem;
-        outline: none;
-        border: none;
-        background-color: #3D606D;
-        color: white;
-        font-size: 1.3rem;
-        border: 3px solid black;
-        border-radius: 1rem;
-        transition: .25s;
-        cursor: pointer;
-        text-decoration: none;
+    .cardStack {
+        width: 250px;
+        height: 300px;
+        position: relative;
+    }
+
+    .hand {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 <div class="classSelector">
-    <div class="title">Your deck! Click to play a card</div>
-    <div class="classCardLayout">
-        {#each cardData as data}
-            <BattleCard cardData={data}/>
-        {/each}
+    <div class="layout">
+        <div class="left">
+            <div class="cardStack" onclick={()=>{addCard()}}>
+                <div style="z-index: 1; position:absolute; top: 0px;">
+                    <UnknownCard />
+                </div>
+                <div style="z-index: 2; position:absolute; top: 5px;">
+                    <UnknownCard />
+                </div>
+                <div style="z-index: 3; position:absolute; top: 10px;">
+                    <UnknownCard />
+                </div>
+                <div style="z-index: 4; position:absolute; top: 15px;">
+                    <UnknownCard />
+                </div>
+            </div>
+        </div>
+        <div class="playfield">
+            <div class="battlefield">
+            </div>
+            <div class="hand">
+                <div class="classCardLayout">
+                    {#each cardData as data}
+                        <span onclick={()=>{removebyName(data.name)}}>
+                            <BattleCard cardData={data}/>
+                        </span>
+                    {/each}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
