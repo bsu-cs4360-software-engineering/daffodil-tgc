@@ -1,3 +1,5 @@
+import { loadCardsByName } from "$lib";
+
 let _selectedClass = $state("")
 
 export const selectedClass = {
@@ -19,5 +21,21 @@ export const selectedCards = {
             _selectedCards.push(value);
         }
         console.log(_selectedCards)
+    },
+    pop: (index:number)=>{
+        _selectedCards.splice(index,1)
+    },
+    getData: async () => {
+        try {
+            const data = await loadCardsByName(_selectedCards);
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error("Error loading card data:", error);
+            return [];
+        }
+    },
+    getLength: ()=>{
+        return _selectedCards.length
     }
 };
